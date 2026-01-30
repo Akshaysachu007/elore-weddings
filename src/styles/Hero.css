@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+
+  height: 100vh;      /* 100% of the Viewport Height */
+  width: 100vw;       /* 100% of the Viewport Width */
+  
+  /* This ensures the photo doesn't look stretched */
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* This makes the background image change look like a movie fade */
+  transition: background-image 1.0s ease-in-out; 
+  
+  /* Professional fix: avoids a tiny white gap at the top */
+  display: block;
+}
+
+.hero-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 180px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.1;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-wrap: balance;
+  display: block;
+}
+
+.hero-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Add padding for mobile */
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  max-width: 100%; /* Prevent overflow */
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow buttons to stack on small screens */
+}
+
+.btn-solid, .btn-outline {
+  padding: 15px 35px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-solid {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-solid:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 120px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem; /* Smaller heading on tablets */
+  }
+  
+  .hero-buttons {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-overlay {
+    padding: 15px; /* Tighter padding on mobile */
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem; /* Even smaller on phones */
+    margin-bottom: 20px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .btn-solid, .btn-outline {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    width: 100%; /* Full width buttons on mobile */
+    max-width: 300px; /* But not too wide */
+  }
+}

@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&display=swap");
+
+.packages-section {
+  padding: 100px 60px;
+  background: linear-gradient(135deg, #faf8f3 0%, #f5ebe0 50%, #e8dcc4 100%);
+  color: #2c3e50;
+  font-family: "Cormorant Garamond", serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cozy Background Pattern */
+.packages-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(139, 115, 85, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.packages-header {
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+  z-index: 1;
+}
+
+.header-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #8b7355;
+  margin-top: 50px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.cta-btn {
+  /* Layout & Centering */
+  display: block;           /* Necessary for margin auto to work */
+  margin: 40px auto;        /* Centers it horizontally & adds space top/bottom */
+  
+  /* Sizing - Increased X padding from 45px to 70px */
+  padding: 16px 70px; 
+  
+  /* Typography */
+  font-size: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 2px;      /* Slightly increased for better readability */
+  text-transform: uppercase;
+  font-weight: 600;
+  
+  /* Aesthetics */
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #d4af37, #f4aa21);
+  cursor: pointer;
+  
+  /* Effects */
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4); /* Smoother shadow */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover Effect - Added for extra "pop" */
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6); /* Brighter brightness on hover */
+  background: linear-gradient(135deg, #f4aa21, #d4af37); /* Subtle flip of gradient */
+}
+
+
+.packages-header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #8b7355;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.packages-header p {
+  color: #6b5d52;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* CARD */
+.package-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Premium Hover Effect */
+.package-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.package-card:hover::before {
+  left: 100%;
+}
+
+.package-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(212, 175, 55, 0.25),
+    0 15px 30px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.package-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #5a4a3a;
+  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+
+.package-card:hover .package-title {
+  color: #8b7355;
+  text-shadow: 0 2px 4px rgba(139, 115, 85, 0.2);
+}
+
+.package-price {
+  font-size: 1.8rem;
+  margin: 10px 0 30px;
+  color: #d4af37;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(212, 175, 55, 0.2);
+}
+
+.package-card:hover .package-price {
+  color: #b8941f;
+  transform: scale(1.05);
+  text-shadow: 0 2px 4px rgba(184, 148, 31, 0.3);
+}
+
+.package-block h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #5a4a3a;
+  letter-spacing: 0.5px;
+  font-family: "Playfair Display", serif;
+}
+
+.package-block ul {
+  padding-left: 18px;
+  margin-bottom: 24px;
+}
+
+.package-block li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6b5d52;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.package-card:hover .package-block li {
+  color: #5a4a3a;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #d4af37, #f2cd78);
+  color: #ebae13;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(243, 222, 153, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:hover {
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(236, 200, 81, 0.5);
+  background: linear-gradient(135deg, #0b0b0b, #efc53c);
+}
+
+@media (max-width: 768px) {
+  .packages-section {
+    padding: 70px 20px;
+  }
+
+  .packages-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .packages-header p {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .package-card {
+    padding: 30px 22px;
+  }
+
+  .package-card:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+
+  .package-title {
+    font-size: 1.7rem;
+  }
+
+  .package-price {
+    font-size: 1.5rem;
+  }
+
+  .package-block h4 {
+    font-size: 1rem;
+  }
+
+  .package-block li {
+    font-size: 0.95rem;
+  }
+
+  .download-btn {
+    padding: 12px 26px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .packages-section {
+    padding: 50px 15px;
+  }
+
+  .packages-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .packages-header p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .package-card {
+    padding: 25px 18px;
+  }
+
+  .package-title {
+    font-size: 1.5rem;
+  }
+
+  .package-price {
+    font-size: 1.3rem;
+  }
+
+  .package-block h4 {
+    font-size: 0.95rem;
+  }
+
+  .package-block li {
+    font-size: 0.9rem;
+  }
+
+  .download-btn {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+  }
+}

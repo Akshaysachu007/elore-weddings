@@ -1,0 +1,433 @@
+/* Import Premium Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Tangerine:wght@400;700&family=Great+Vibes&family=Dancing+Script:wght@400;500&display=swap');
+
+/* Root Variables */
+:root {
+  --primary-gold: #d4af37;
+  --soft-cream: #faf8f3;
+  --warm-brown: #8b7355;
+  --deep-navy: #2c3e50;
+  --cozy-beige: #f5ebe0;
+  --shadow-soft: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+}
+
+/* Stories Container */
+.stories-container {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #faf8f3 0%, #f5ebe0 50%, #e8dcc4 100%);
+  padding: 80px 20px 60px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  margin: 0;
+  box-sizing: border-box;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+
+/* Cozy Background Pattern */
+.stories-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 115, 85, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Stories Header */
+.stories-header {
+  text-align: center;
+  margin-bottom: 60px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.stories-header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--warm-brown);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stories-header p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--deep-navy);
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* Stories Grid */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Story Card */
+.story-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 450px;
+  box-shadow: 
+    0 10px 30px var(--shadow-soft),
+    0 5px 15px var(--shadow-medium);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+}
+
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 20px 50px rgba(212, 175, 55, 0.2),
+    0 10px 30px var(--shadow-medium);
+}
+
+.story-card:hover::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(212, 175, 55, 0.1) 0%,
+    rgba(139, 115, 85, 0.2) 30%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+/* Story Image */
+.story-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.95);
+}
+
+.story-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+
+/* Story Overlay - Text on Photo */
+.story-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 30px;
+  z-index: 2;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+/* Couple Name */
+.story-overlay h3 {
+  font-family: 'Tangerine', cursive;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  letter-spacing: 1px;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.story-card:hover .story-overlay h3 {
+  color: var(--primary-gold);
+  text-shadow: 
+    2px 2px 6px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(212, 175, 55, 0.5);
+  transform: scale(1.05);
+}
+
+/* Story Divider */
+.story-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--primary-gold) 50%,
+    transparent 100%
+  );
+  margin: 0 auto 15px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.story-card:hover .story-divider {
+  width: 100px;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Marriage Date */
+.story-overlay p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #f5f5f5;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.story-card:hover .story-overlay p {
+  color: var(--soft-cream);
+  letter-spacing: 4px;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablets and Small Laptops */
+@media (max-width: 1024px) {
+  .stories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 15px;
+  }
+
+  .stories-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .story-card {
+    height: 400px;
+    width: 100%;
+  }
+
+  .story-overlay h3 {
+    font-size: 2.8rem;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+  .stories-container {
+    padding: 60px 15px 40px;
+  }
+
+  .stories-header {
+    margin-bottom: 40px;
+  }
+
+  .stories-header h1 {
+    font-size: 3rem;
+  }
+
+  .stories-header p {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .stories-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 15px;
+    max-width: 100vw;
+    overflow: visible;
+  }
+
+  .story-card {
+    height: 380px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .story-overlay {
+    padding: 30px 20px;
+  }
+
+  .story-overlay h3 {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+
+  .story-overlay p {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .stories-container {
+    padding: 50px 12px 30px;
+  }
+
+  .stories-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .stories-header p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .stories-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .story-card {
+    height: 350px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .story-overlay {
+    padding: 25px 15px;
+  }
+
+  .story-overlay h3 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .story-divider {
+    width: 50px;
+    margin-bottom: 10px;
+  }
+
+  .story-card:hover .story-divider {
+    width: 80px;
+  }
+
+  .story-overlay p {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .stories-container {
+    padding: 40px 8px 25px;
+  }
+
+  .stories-header h1 {
+    font-size: 2rem;
+  }
+
+  .stories-header p {
+    font-size: 0.9rem;
+  }
+
+  .stories-grid {
+    padding: 0 10px;
+    gap: 15px;
+    max-width: 100vw;
+  }
+
+  .story-card {
+    height: 320px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .story-overlay {
+    padding: 20px 12px;
+  }
+
+  .story-overlay h3 {
+    font-size: 2rem;
+  }
+
+  .story-overlay p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Smooth Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.story-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Stagger Animation for Cards */
+.story-card:nth-child(1) { animation-delay: 0.1s; }
+.story-card:nth-child(2) { animation-delay: 0.2s; }
+.story-card:nth-child(3) { animation-delay: 0.3s; }
+.story-card:nth-child(4) { animation-delay: 0.4s; }
+.story-card:nth-child(5) { animation-delay: 0.5s; }
+.story-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Accessibility - Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

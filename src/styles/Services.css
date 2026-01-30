@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&display=swap');
+
+.services-section {
+  padding: 90px 40px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1410 50%, #0f0f0f 100%);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Premium Background Pattern */
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  color: #d4af37;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.services-sub {
+  margin-top: 15px;
+  color: #c9b896;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.services-grid {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 35px;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 10px 30px;
+  position: relative;
+  z-index: 1;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar */
+.services-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.services-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.services-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #d4af37, #f2d38b);
+  border-radius: 10px;
+}
+
+.services-grid::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #b8941f, #d4af37);
+}
+
+.service-card {
+  min-width: 280px;
+  flex-shrink: 0;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    0 5px 20px rgba(212, 175, 55, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Premium Shimmer Effect */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.service-card:hover::before {
+  left: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    0 15px 40px rgba(212, 175, 55, 0.3),
+    inset 0 0 40px rgba(212, 175, 55, 0.1);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(212, 175, 55, 0.5);
+}
+
+.service-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #d4af37;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.service-card:hover h4 {
+  color: #f2d38b;
+  transform: scale(1.08);
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.service-card p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #c9b896;
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover p {
+  color: #e0d5c0;
+}
+
+
+.cta-container {
+  margin-top: 80px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+.contact-cta {
+  margin: 100px auto;
+  padding: 100px 40px;
+  max-width: 900px;
+  text-align: center;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.12),
+    rgba(255, 255, 255, 0.05)
+  );
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 10px 30px rgba(212, 175, 55, 0.2),
+    inset 0 0 60px rgba(212, 175, 55, 0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #e0d5c0;
+  line-height: 1.8;
+  margin-bottom: 35px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.cta-btn {
+  padding: 16px 45px;
+  font-size: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #d4af37, #f4aa21);
+  color: #000;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 6px rgba(212, 175, 55, 0.4);
+  text-shadow: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 2px 6px rgba(212, 175, 55, 0.6),
+    0 0 30px rgba(212, 175, 55, 0.4);
+  background: linear-gradient(135deg, #f2d38b, #f2870c);
+}
+
+.cta-btn:active {
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 70px 25px;
+  }
+
+  .services-section h2 {
+    font-size: 3rem;
+  }
+
+  .services-sub {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .services-grid {
+    gap: 25px;
+    margin-top: 50px;
+    padding: 20px 5px 25px;
+  }
+
+  .service-card {
+    min-width: 240px;
+    padding: 30px 20px;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px) scale(1.03);
+  }
+
+  .service-card h4 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+
+  .contact-cta {
+    margin: 70px auto;
+    padding: 50px 25px;
+  }
+
+  .cta-text {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  .cta-btn {
+    padding: 14px 35px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 50px 15px;
+  }
+
+  .services-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .services-sub {
+    font-size: 1rem;
+  }
+
+  .services-grid {
+    gap: 20px;
+  }
+
+  .service-card {
+    min-width: 220px;
+    padding: 25px 18px;
+  }
+
+  .service-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .contact-cta {
+    margin: 50px auto;
+    padding: 40px 20px;
+  }
+
+  .cta-text {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+}

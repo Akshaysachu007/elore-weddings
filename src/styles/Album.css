@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+.album-container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  padding: 100px 40px 60px;
+  position: relative;
+}
+
+.album-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header */
+.album-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.album-header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: #d4af37;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.album-header p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #b0b0b0;
+  letter-spacing: 1px;
+}
+
+/* Controls Bar */
+.album-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.control-left {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.select-mode-btn,
+.download-btn {
+  padding: 12px 30px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: transparent;
+  color: #d4af37;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+}
+
+.select-mode-btn.active {
+  background: linear-gradient(135deg, #d4af37, #f2d38b);
+  color: #000;
+  border: none;
+}
+
+.select-mode-btn:hover,
+.download-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.8);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.download-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.selected-count {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #b0b0b0;
+  padding: 0 10px;
+}
+
+/* Image Grid */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+
+.image-card {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
+}
+
+.image-card.selected {
+  border-color: #d4af37;
+  transform: scale(0.95);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Selection Checkbox */
+.image-checkbox {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #d4af37;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.select-mode .image-checkbox,
+.image-card:hover .image-checkbox {
+  opacity: 1;
+}
+
+.image-checkbox.checked {
+  background: #d4af37;
+  opacity: 1;
+}
+
+.image-checkbox svg {
+  width: 18px;
+  height: 18px;
+  color: #000;
+}
+
+/* Lightbox/Slideshow */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+}
+
+/* Lightbox Controls */
+.lightbox-close,
+.lightbox-nav,
+.lightbox-download {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #d4af37;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover,
+.lightbox-download:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: scale(1.1);
+}
+
+.lightbox-close {
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+.lightbox-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+}
+
+.lightbox-nav.prev {
+  left: 30px;
+}
+
+.lightbox-nav.next {
+  right: 30px;
+}
+
+.lightbox-nav svg {
+  width: 24px;
+  height: 24px;
+}
+
+.lightbox-download {
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+.lightbox-download svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Image Counter */
+.lightbox-counter {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #d4af37;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  z-index: 1001;
+}
+
+/* Loading State */
+.album-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #d4af37;
+}
+
+.album-loading p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(212, 175, 55, 0.2);
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .album-container {
+    padding: 80px 30px 50px;
+  }
+
+  .album-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .album-header p {
+    font-size: 1.2rem;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .album-container {
+    padding: 70px 20px 40px;
+  }
+
+  .album-header {
+    margin-bottom: 40px;
+  }
+
+  .album-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .album-header p {
+    font-size: 1.1rem;
+  }
+
+  .album-controls {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .control-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .select-mode-btn,
+  .download-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .lightbox-close,
+  .lightbox-nav,
+  .lightbox-download {
+    padding: 12px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .lightbox-close {
+    top: 20px;
+    right: 20px;
+  }
+
+  .lightbox-nav.prev {
+    left: 20px;
+  }
+
+  .lightbox-nav.next {
+    right: 20px;
+  }
+
+  .lightbox-download {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .lightbox-counter {
+    bottom: 20px;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .lightbox-content {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-container {
+    padding: 60px 15px 30px;
+  }
+
+  .album-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .album-header p {
+    font-size: 1rem;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .select-mode-btn,
+  .download-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .selected-count {
+    font-size: 0.9rem;
+  }
+
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .lightbox-nav.prev {
+    left: 10px;
+  }
+
+  .lightbox-nav.next {
+    right: 10px;
+  }
+
+  .lightbox-close,
+  .lightbox-download {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .lightbox-close {
+    top: 15px;
+    right: 15px;
+  }
+
+  .lightbox-download {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .lightbox-counter {
+    bottom: 15px;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+}
