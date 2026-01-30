@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Hero.css';
 
-import wedding1 from '../assets/Wedding1.JPEG';
-import wedding2 from '../assets/Wedding2.JPEG';
-import wedding3 from '../assets/Wedding3.JPEG';
-import wedding4 from '../assets/Wedding4.JPEG';
+import wedding1 from '../assets/Wedding1.jpeg';
+import wedding2 from '../assets/Wedding2.jpeg';
+import wedding3 from '../assets/Wedding3.jpeg';
+import wedding4 from '../assets/Wedding4.jpeg';
 
 function Hero() {
   const slides = [
