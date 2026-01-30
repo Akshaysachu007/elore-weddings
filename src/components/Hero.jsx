@@ -3,10 +3,10 @@ import '../styles/Hero.css';
 
 function Hero() {
   const slides = [
-    "/images/wedding1.jpeg",
-    "/images/wedding2.jpeg",
-    "/images/wedding3.jpeg",
-    "/images/wedding4.jpeg",
+    "/images/wedding1.jpg",
+    "/images/wedding2.jpg",
+    "/images/wedding3.jpg",
+    "/images/wedding4.jpg",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
