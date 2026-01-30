@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Hero.css';
 
-import wedding1 from '../assets/Wedding1.jpeg';
-import wedding2 from '../assets/Wedding2.jpeg';
-import wedding3 from '../assets/Wedding3.jpeg';
-import wedding4 from '../assets/Wedding4.jpeg';
-
 function Hero() {
   const slides = [
-    wedding1,
-    wedding2,
-    wedding3,
-    wedding4
+    "/images/wedding1.jpeg",
+    "/images/wedding2.jpeg",
+    "/images/wedding3.jpeg",
+    "/images/wedding4.jpeg",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
