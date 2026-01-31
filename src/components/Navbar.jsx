@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Navbar.css';
 import logo from '../assets/logo.png';
 import { FaHome, FaUser, FaPhoneAlt, FaBoxOpen } from "react-icons/fa";
+import {  useRef } from "react";
+
+
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
   const[isScrolled , setIsScrolled] = useState(false);
+  const menuRef = useRef(null);
+
 
   const toggleMenu = () => {
     setIsActive(!isActive);
@@ -14,6 +19,24 @@ function Navbar() {
   const closeMenu = () => {
     setIsActive(false);
   };
+
+  useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      isActive &&
+      menuRef.current &&
+      !menuRef.current.contains(event.target)
+    ) {
+      closeMenu();
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+ }, [isActive]);
 
   useEffect(() =>{
     const handleScroll = () => {
@@ -49,7 +72,7 @@ function Navbar() {
       </div>
       
       {/* Navigation menu */}
-      <div className={`nav-menu ${isActive ? 'active' : ''}`}>
+      <div ref={menuRef} className={`nav-menu ${isActive ? 'active' : ''}`}>
         <a href="#hero" onClick={closeMenu}><FaHome /> Home</a>
         <a href="#about" onClick={closeMenu}><FaUser /> About Us</a>
          <a href="#packages" onClick={closeMenu}><FaBoxOpen /> Packages</a>
