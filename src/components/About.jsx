@@ -42,7 +42,7 @@ const About = () => {
           <FiMapPin className="location-icon" />
           <div className="location-text">
             <h4>Based in</h4>
-            <p>Chavara, Kollam , Kerala</p>
+            <p>Kollam , Kerala</p>
           </div>
         </div>
         </a>

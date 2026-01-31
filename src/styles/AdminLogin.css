@@ -1,0 +1,76 @@
+.login-wrapper {
+  background: transparent;       /* Fully transparent */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Glass-like transparent card */
+.login-form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 12px;
+
+  /* TRUE TRANSPARENCY */
+  background: rgba(255, 255, 255, 0.85);
+
+  /* Soft shadow */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+  backdrop-filter: blur(10px);
+}
+
+/* Title alignment */
+.login-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Form layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Label styling */
+.login-form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Inputs alignment */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* Focus effect */
+.login-form input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+/* Button alignment */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
