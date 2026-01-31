@@ -12,14 +12,14 @@ const Contact = () => {
         </p>
         <div className="booking-text">
         <p>
-          For Bookings & Enquiries: call +91 7592864164 or tap the options below
+          For Bookings & Enquiries: call +91 7592863164 or tap the options below
         </p>
         </div>
       </div>
 
       <div className="contact-cards">
         {/* Call */}
-        <a href="tel:+917592864164" className="contact-card">
+        <a href="tel:+917592863164" className="contact-card">
           <Phone />
           <h3>Call Us</h3>
           <p>Instant bookings & enquiries</p>
